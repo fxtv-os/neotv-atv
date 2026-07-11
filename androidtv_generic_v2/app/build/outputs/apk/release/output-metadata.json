@@ -1,0 +1,37 @@
+{
+  "version": 3,
+  "artifactType": {
+    "type": "APK",
+    "kind": "Directory"
+  },
+  "applicationId": "com.neoos.app.tv.androidtv",
+  "variantName": "release",
+  "elements": [
+    {
+      "type": "SINGLE",
+      "filters": [],
+      "attributes": [],
+      "versionCode": 1,
+      "versionName": "1.2.3_genericandroidtvdevice",
+      "outputFile": "com.neoos.app.tv.androidtv_1.2.3_genericandroidtvdevice.apk"
+    }
+  ],
+  "elementType": "File",
+  "baselineProfiles": [
+    {
+      "minApi": 28,
+      "maxApi": 30,
+      "baselineProfiles": [
+        "baselineProfiles/1/com.neoos.app.tv.androidtv_1.2.3_genericandroidtvdevice.dm"
+      ]
+    },
+    {
+      "minApi": 31,
+      "maxApi": 2147483647,
+      "baselineProfiles": [
+        "baselineProfiles/0/com.neoos.app.tv.androidtv_1.2.3_genericandroidtvdevice.dm"
+      ]
+    }
+  ],
+  "minSdkVersionForDexing": 21
+}

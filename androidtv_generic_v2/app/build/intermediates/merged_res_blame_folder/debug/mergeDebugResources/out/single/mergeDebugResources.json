@@ -1,0 +1,66 @@
+[
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/mipmap-xhdpi_ic_launcher.png.flat",
+        "source": "com.neoos.neotv.app-main-43:/mipmap-xhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/layout_activity_search.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/layout/activity_search.xml"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/mipmap-xxxhdpi_ic_launcher.png.flat",
+        "source": "com.neoos.neotv.app-main-43:/mipmap-xxxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/drawable_tv_banner.png.flat",
+        "source": "com.neoos.neotv.app-main-43:/drawable/tv_banner.png"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/drawable_ic_search.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/drawable/ic_search.xml"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/layout_activity_main.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/layout/activity_main.xml"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/mipmap-mdpi_ic_launcher.png.flat",
+        "source": "com.neoos.neotv.app-main-43:/mipmap-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/mipmap-xxhdpi_ic_launcher.png.flat",
+        "source": "com.neoos.neotv.app-main-43:/mipmap-xxhdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/drawable_ic_placeholder.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/drawable/ic_placeholder.xml"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/layout_activity_playback.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/layout/activity_playback.xml"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/drawable_ic_assistant.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/drawable/ic_assistant.xml"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/xml_preferences.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/xml/preferences.xml"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/mipmap-hdpi_ic_launcher.png.flat",
+        "source": "com.neoos.neotv.app-main-43:/mipmap-hdpi/ic_launcher.png"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/drawable-xhdpi_app_logo.png.flat",
+        "source": "com.neoos.neotv.app-main-43:/drawable-xhdpi/app_logo.png"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/layout_activity_settings.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/layout/activity_settings.xml"
+    },
+    {
+        "merged": "com.neoos.neotv.app-debug-41:/drawable_ic_settings.xml.flat",
+        "source": "com.neoos.neotv.app-main-43:/drawable/ic_settings.xml"
+    }
+]

@@ -1,0 +1,38 @@
+{
+    "logs": [
+        {
+            "outputFile": "com.neoos.neotv.app-mergeReleaseResources-39:/values-v22/values-v22.xml",
+            "map": [
+                {
+                    "source": "/home/codespace/.gradle/caches/transforms-4/7cec685aea87d89e382b688c09684594/transformed/leanback-1.0.0/res/values-v22/values-v22.xml",
+                    "from": {
+                        "startLines": "2,3",
+                        "startColumns": "4,4",
+                        "startOffsets": "55,107",
+                        "endColumns": "51,53",
+                        "endOffsets": "102,156"
+                    }
+                },
+                {
+                    "source": "/home/codespace/.gradle/caches/transforms-4/2a521f8f95c27d1d2e4e908a75207c20/transformed/appcompat-1.7.0/res/values-v22/values-v22.xml",
+                    "from": {
+                        "startLines": "2,3,4,9",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "55,130,217,487",
+                        "endLines": "2,3,8,13",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "125,212,482,764"
+                    },
+                    "to": {
+                        "startLines": "4,5,6,11",
+                        "startColumns": "4,4,4,4",
+                        "startOffsets": "161,236,323,593",
+                        "endLines": "4,5,10,15",
+                        "endColumns": "74,86,12,12",
+                        "endOffsets": "231,318,588,870"
+                    }
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="language_entries">
+        <item>@string/lang_de</item>
+        <item>@string/lang_en</item>
+        <item>@string/lang_nl</item>
+        <item>@string/lang_tr</item>
+    </string-array>
+    <string-array name="language_values" translatable="false">
+        <item>de</item>
+        <item>en</item>
+        <item>nl</item>
+        <item>tr</item>
+    </string-array>
+    <color name="bg_dark">#121212</color>
+    <color name="brand_blue">#0088FF</color>
+    <color name="card_bg">#1E1E1E</color>
+    <color name="text_light">#FFFFFF</color>
+    <color name="text_muted">#AAAAAA</color>
+    <string name="app_install_hint">Diese App ist auf diesem Gerät nicht installiert.</string>
+    <string name="app_installed">Installiert</string>
+    <string name="app_name">NeoTV</string>
+    <string name="app_not_installed">Nicht installiert</string>
+    <string name="card_google_assistant">Google Assistant</string>
+    <string name="card_search_start">Suche starten</string>
+    <string name="card_settings_open">Einstellungen öffnen</string>
+    <string name="lang_de">Deutsch</string>
+    <string name="lang_en">English</string>
+    <string name="lang_nl">Nederlands</string>
+    <string name="lang_tr">Türkçe</string>
+    <string name="loading">Lädt…</string>
+    <string name="playback_error">Wiedergabe fehlgeschlagen. Bitte Stream prüfen.</string>
+    <string name="pref_language_summary">Wähle die Sprache der App</string>
+    <string name="pref_language_title">Sprache</string>
+    <string name="row_app_channels">Channels aus Apps</string>
+    <string name="row_apps">Apps</string>
+    <string name="row_live_tv">Live TV</string>
+    <string name="row_search">Suche</string>
+    <string name="row_settings">Einstellungen</string>
+    <string name="search_hint">Sender oder App suchen…</string>
+    <string name="search_no_results">Keine Ergebnisse gefunden</string>
+    <string name="settings_title">Einstellungen</string>
+    <style name="NeoTV.CardStyle" parent="Widget.Leanback.BaseCardViewStyle">
+        <item name="android:background">@color/card_bg</item>
+    </style>
+    <style name="NeoTV.TitleText" parent="TextAppearance.Leanback.Title">
+        <item name="android:textColor">@color/brand_blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Theme.NeoTV" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorPrimary">@color/brand_blue</item>
+        <item name="android:colorBackground">@color/bg_dark</item>
+    </style>
+    <style name="Theme.NeoTV.Browse" parent="Theme.Leanback.Browse">
+        <item name="browseTitleTextStyle">@style/NeoTV.TitleText</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="defaultBrandColor">@color/brand_blue</item>
+        <item name="defaultSearchColor">@color/brand_blue</item>
+        <item name="baseCardViewStyle">@style/NeoTV.CardStyle</item>
+    </style>
+    <style name="Theme.NeoTV.Playback" parent="Theme.Leanback">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+    <style name="Theme.NeoTV.Settings" parent="Theme.Leanback.GuidedStep"/>
+</resources>

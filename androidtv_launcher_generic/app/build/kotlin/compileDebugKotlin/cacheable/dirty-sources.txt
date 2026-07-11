@@ -1,0 +1,16 @@
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/data/M3uParser.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/main/MainActivity.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/data/ChannelRepository.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/util/BaseActivity.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/settings/SettingsActivity.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/model/AppChannel.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/model/Channel.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/data/AppsRepository.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/settings/SettingsFragment.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/search/SearchActivity.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/playback/PlaybackActivity.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/main/CardItems.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/util/LocaleHelper.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/main/CardPresenter.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/main/MainFragment.kt
+/workspaces/neotv-atv/androidtv_launcher_generic/app/src/main/java/com/neoos/neotv/ui/search/SearchFragment.kt

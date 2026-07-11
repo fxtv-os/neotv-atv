@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="Theme.NeoTV" parent="Theme.AppCompat.NoActionBar">
+        <item name="android:colorPrimary">@color/brand_blue</item>
+        <item name="android:colorBackground">@color/bg_dark</item>
+    </style>
+
+    <style name="Theme.NeoTV.Browse" parent="Theme.Leanback.Browse">
+        <item name="browseTitleTextStyle">@style/NeoTV.TitleText</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+        <item name="defaultBrandColor">@color/brand_blue</item>
+        <item name="defaultSearchColor">@color/brand_blue</item>
+        <item name="baseCardViewStyle">@style/NeoTV.CardStyle</item>
+    </style>
+
+    <style name="Theme.NeoTV.Playback" parent="Theme.Leanback">
+        <item name="android:windowBackground">@android:color/black</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowFullscreen">true</item>
+    </style>
+
+    <style name="NeoTV.TitleText" parent="TextAppearance.Leanback.Title">
+        <item name="android:textColor">@color/brand_blue</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="NeoTV.CardStyle" parent="Widget.Leanback.BaseCardViewStyle">
+        <item name="android:background">@color/card_bg</item>
+    </style>
+
+    <style name="Theme.NeoTV.Settings" parent="Theme.Leanback.GuidedStep" />
+
+</resources>

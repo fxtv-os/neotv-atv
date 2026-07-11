@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">NeoTV</string>
+
+    <string name="row_search">Zoeken</string>
+    <string name="row_live_tv">Live TV</string>
+    <string name="row_apps">Apps</string>
+    <string name="row_app_channels">Kanalen uit apps</string>
+    <string name="row_settings">Instellingen</string>
+
+    <string name="card_search_start">Zoeken starten</string>
+    <string name="card_google_assistant">Google Assistent</string>
+    <string name="card_settings_open">Instellingen openen</string>
+
+    <string name="search_hint">Zoek zenders of apps…</string>
+    <string name="search_no_results">Geen resultaten gevonden</string>
+
+    <string name="settings_title">Instellingen</string>
+    <string name="pref_language_title">Taal</string>
+    <string name="pref_language_summary">Kies de taal van de app</string>
+
+    <string name="app_not_installed">Niet geïnstalleerd</string>
+    <string name="app_installed">Geïnstalleerd</string>
+    <string name="app_install_hint">Deze app is niet op dit apparaat geïnstalleerd.</string>
+
+    <string name="playback_error">Afspelen mislukt. Controleer de stream.</string>
+    <string name="loading">Laden…</string>
+
+    <string name="lang_de">Deutsch</string>
+    <string name="lang_en">English</string>
+    <string name="lang_nl">Nederlands</string>
+    <string name="lang_tr">Türkçe</string>
+</resources>

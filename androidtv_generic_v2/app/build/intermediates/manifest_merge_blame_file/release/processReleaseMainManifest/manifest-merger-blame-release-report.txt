@@ -1,0 +1,231 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.neoos.app.tv.androidtv"
+4    android:versionCode="1"
+5    android:versionName="1.2.3_genericandroidtvdevice" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="21"
+9        android:targetSdkVersion="34" />
+10
+11    <uses-permission android:name="android.permission.INTERNET" />
+11-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:4:5-67
+11-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:4:22-64
+12    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+12-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:5:5-79
+12-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:5:22-76
+13
+14    <!-- Needed on Android 11+ to see which streaming apps are installed -->
+15    <queries>
+15-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:8:5-18:15
+16        <intent>
+16-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:9:9-12:18
+17            <action android:name="android.intent.action.MAIN" />
+17-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:10:13-65
+17-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:10:21-62
+18
+19            <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+19-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:11:13-82
+19-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:11:23-79
+20        </intent>
+21
+22        <package android:name="com.disney.disneyplus" />
+22-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:13:9-57
+22-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:13:18-54
+23        <package android:name="com.netflix.mediaclient" />
+23-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:14:9-59
+23-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:14:18-56
+24        <package android:name="com.amazon.avod.thirdpartyclient" />
+24-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:15:9-68
+24-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:15:18-65
+25        <package android:name="com.google.android.youtube.tv" />
+25-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:16:9-65
+25-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:16:18-62
+26        <package android:name="com.spotify.tv.android" />
+26-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:17:9-58
+26-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:17:18-55
+27    </queries>
+28
+29    <uses-feature
+29-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:20:5-22:35
+30        android:name="android.software.leanback"
+30-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:21:9-49
+31        android:required="true" />
+31-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:22:9-32
+32    <uses-feature
+32-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:23:5-25:36
+33        android:name="android.hardware.touchscreen"
+33-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:24:9-52
+34        android:required="false" />
+34-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:25:9-33
+35
+36    <permission
+36-->[androidx.core:core:1.13.1] /home/codespace/.gradle/caches/transforms-4/931a813c0b1c56b2e997d06cbf8e44a0/transformed/core-1.13.1/AndroidManifest.xml:22:5-24:47
+37        android:name="com.neoos.app.tv.androidtv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+37-->[androidx.core:core:1.13.1] /home/codespace/.gradle/caches/transforms-4/931a813c0b1c56b2e997d06cbf8e44a0/transformed/core-1.13.1/AndroidManifest.xml:23:9-81
+38        android:protectionLevel="signature" />
+38-->[androidx.core:core:1.13.1] /home/codespace/.gradle/caches/transforms-4/931a813c0b1c56b2e997d06cbf8e44a0/transformed/core-1.13.1/AndroidManifest.xml:24:9-44
+39
+40    <uses-permission android:name="com.neoos.app.tv.androidtv.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+40-->[androidx.core:core:1.13.1] /home/codespace/.gradle/caches/transforms-4/931a813c0b1c56b2e997d06cbf8e44a0/transformed/core-1.13.1/AndroidManifest.xml:26:5-97
+40-->[androidx.core:core:1.13.1] /home/codespace/.gradle/caches/transforms-4/931a813c0b1c56b2e997d06cbf8e44a0/transformed/core-1.13.1/AndroidManifest.xml:26:22-94
+41
+42    <application
+42-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:27:5-64:19
+43        android:allowBackup="true"
+43-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:28:9-35
+44        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+44-->[androidx.core:core:1.13.1] /home/codespace/.gradle/caches/transforms-4/931a813c0b1c56b2e997d06cbf8e44a0/transformed/core-1.13.1/AndroidManifest.xml:28:18-86
+45        android:banner="@drawable/tv_banner"
+45-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:29:9-45
+46        android:extractNativeLibs="true"
+47        android:icon="@mipmap/ic_launcher"
+47-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:30:9-43
+48        android:label="@string/app_name"
+48-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:31:9-41
+49        android:theme="@style/Theme.NeoTV"
+49-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:32:9-43
+50        android:usesCleartextTraffic="true" >
+50-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:33:9-44
+51        <activity
+51-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:35:9-44:20
+52            android:name="com.neoos.neotv.ui.main.MainActivity"
+52-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:36:13-49
+53            android:exported="true"
+53-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:37:13-36
+54            android:screenOrientation="landscape"
+54-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:38:13-50
+55            android:theme="@style/Theme.NeoTV.Browse" >
+55-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:39:13-54
+56            <intent-filter>
+56-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:40:13-43:29
+57                <action android:name="android.intent.action.MAIN" />
+57-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:10:13-65
+57-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:10:21-62
+58
+59                <category android:name="android.intent.category.LEANBACK_LAUNCHER" />
+59-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:11:13-82
+59-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:11:23-79
+60            </intent-filter>
+61        </activity>
+62        <activity
+62-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:46:9-50:57
+63            android:name="com.neoos.neotv.ui.search.SearchActivity"
+63-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:47:13-53
+64            android:exported="false"
+64-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:48:13-37
+65            android:screenOrientation="landscape"
+65-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:49:13-50
+66            android:theme="@style/Theme.NeoTV.Browse" />
+66-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:50:13-54
+67        <activity
+67-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:52:9-56:59
+68            android:name="com.neoos.neotv.ui.playback.PlaybackActivity"
+68-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:53:13-57
+69            android:exported="false"
+69-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:54:13-37
+70            android:screenOrientation="landscape"
+70-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:55:13-50
+71            android:theme="@style/Theme.NeoTV.Playback" />
+71-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:56:13-56
+72        <activity
+72-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:58:9-62:57
+73            android:name="com.neoos.neotv.ui.settings.SettingsActivity"
+73-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:59:13-57
+74            android:exported="false"
+74-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:60:13-37
+75            android:screenOrientation="landscape"
+75-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:61:13-50
+76            android:theme="@style/Theme.NeoTV.Browse" />
+76-->/workspaces/neotv-atv/androidtv_generic_v2/app/src/main/AndroidManifest.xml:62:13-54
+77
+78        <provider
+78-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/1a8dd8b586000eded0416f6cc0011877/transformed/emoji2-1.3.0/AndroidManifest.xml:24:9-32:20
+79            android:name="androidx.startup.InitializationProvider"
+79-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/1a8dd8b586000eded0416f6cc0011877/transformed/emoji2-1.3.0/AndroidManifest.xml:25:13-67
+80            android:authorities="com.neoos.app.tv.androidtv.androidx-startup"
+80-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/1a8dd8b586000eded0416f6cc0011877/transformed/emoji2-1.3.0/AndroidManifest.xml:26:13-68
+81            android:exported="false" >
+81-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/1a8dd8b586000eded0416f6cc0011877/transformed/emoji2-1.3.0/AndroidManifest.xml:27:13-37
+82            <meta-data
+82-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/1a8dd8b586000eded0416f6cc0011877/transformed/emoji2-1.3.0/AndroidManifest.xml:29:13-31:52
+83                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+83-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/1a8dd8b586000eded0416f6cc0011877/transformed/emoji2-1.3.0/AndroidManifest.xml:30:17-75
+84                android:value="androidx.startup" />
+84-->[androidx.emoji2:emoji2:1.3.0] /home/codespace/.gradle/caches/transforms-4/1a8dd8b586000eded0416f6cc0011877/transformed/emoji2-1.3.0/AndroidManifest.xml:31:17-49
+85            <meta-data
+85-->[androidx.lifecycle:lifecycle-process:2.8.4] /home/codespace/.gradle/caches/transforms-4/a0e3b9ee49bc08c53dd0633e78df71bc/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:29:13-31:52
+86                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+86-->[androidx.lifecycle:lifecycle-process:2.8.4] /home/codespace/.gradle/caches/transforms-4/a0e3b9ee49bc08c53dd0633e78df71bc/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:30:17-78
+87                android:value="androidx.startup" />
+87-->[androidx.lifecycle:lifecycle-process:2.8.4] /home/codespace/.gradle/caches/transforms-4/a0e3b9ee49bc08c53dd0633e78df71bc/transformed/lifecycle-process-2.8.4/AndroidManifest.xml:31:17-49
+88            <meta-data
+88-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:29:13-31:52
+89                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+89-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:30:17-85
+90                android:value="androidx.startup" />
+90-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:31:17-49
+91        </provider>
+92
+93        <uses-library
+93-->[androidx.window:window:1.0.0] /home/codespace/.gradle/caches/transforms-4/4c3ba1bb23e4e34209f70e38de0c66f6/transformed/window-1.0.0/AndroidManifest.xml:25:9-27:40
+94            android:name="androidx.window.extensions"
+94-->[androidx.window:window:1.0.0] /home/codespace/.gradle/caches/transforms-4/4c3ba1bb23e4e34209f70e38de0c66f6/transformed/window-1.0.0/AndroidManifest.xml:26:13-54
+95            android:required="false" />
+95-->[androidx.window:window:1.0.0] /home/codespace/.gradle/caches/transforms-4/4c3ba1bb23e4e34209f70e38de0c66f6/transformed/window-1.0.0/AndroidManifest.xml:27:13-37
+96        <uses-library
+96-->[androidx.window:window:1.0.0] /home/codespace/.gradle/caches/transforms-4/4c3ba1bb23e4e34209f70e38de0c66f6/transformed/window-1.0.0/AndroidManifest.xml:28:9-30:40
+97            android:name="androidx.window.sidecar"
+97-->[androidx.window:window:1.0.0] /home/codespace/.gradle/caches/transforms-4/4c3ba1bb23e4e34209f70e38de0c66f6/transformed/window-1.0.0/AndroidManifest.xml:29:13-51
+98            android:required="false" />
+98-->[androidx.window:window:1.0.0] /home/codespace/.gradle/caches/transforms-4/4c3ba1bb23e4e34209f70e38de0c66f6/transformed/window-1.0.0/AndroidManifest.xml:30:13-37
+99
+100        <provider
+100-->[com.squareup.picasso:picasso:2.8] /home/codespace/.gradle/caches/transforms-4/245b2180dc1d4b41da7bb30612ecb689/transformed/picasso-2.8/AndroidManifest.xml:8:9-11:40
+101            android:name="com.squareup.picasso.PicassoProvider"
+101-->[com.squareup.picasso:picasso:2.8] /home/codespace/.gradle/caches/transforms-4/245b2180dc1d4b41da7bb30612ecb689/transformed/picasso-2.8/AndroidManifest.xml:9:13-64
+102            android:authorities="com.neoos.app.tv.androidtv.com.squareup.picasso"
+102-->[com.squareup.picasso:picasso:2.8] /home/codespace/.gradle/caches/transforms-4/245b2180dc1d4b41da7bb30612ecb689/transformed/picasso-2.8/AndroidManifest.xml:10:13-72
+103            android:exported="false" />
+103-->[com.squareup.picasso:picasso:2.8] /home/codespace/.gradle/caches/transforms-4/245b2180dc1d4b41da7bb30612ecb689/transformed/picasso-2.8/AndroidManifest.xml:11:13-37
+104
+105        <receiver
+105-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:34:9-52:20
+106            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+106-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:35:13-76
+107            android:directBootAware="false"
+107-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:36:13-44
+108            android:enabled="true"
+108-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:37:13-35
+109            android:exported="true"
+109-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:38:13-36
+110            android:permission="android.permission.DUMP" >
+110-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:39:13-57
+111            <intent-filter>
+111-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:40:13-42:29
+112                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+112-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:17-91
+112-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:41:25-88
+113            </intent-filter>
+114            <intent-filter>
+114-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:43:13-45:29
+115                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+115-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:17-85
+115-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:44:25-82
+116            </intent-filter>
+117            <intent-filter>
+117-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:46:13-48:29
+118                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+118-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:17-88
+118-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:47:25-85
+119            </intent-filter>
+120            <intent-filter>
+120-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:49:13-51:29
+121                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+121-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:17-95
+121-->[androidx.profileinstaller:profileinstaller:1.3.1] /home/codespace/.gradle/caches/transforms-4/b27660ccabe04d5560de9b5a64cfc747/transformed/profileinstaller-1.3.1/AndroidManifest.xml:50:25-92
+122            </intent-filter>
+123        </receiver>
+124    </application>
+125
+126</manifest>
