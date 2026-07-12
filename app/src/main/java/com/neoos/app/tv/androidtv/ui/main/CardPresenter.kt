@@ -48,7 +48,7 @@ class CardPresenter : Presenter() {
                 .resize(CARD_WIDTH, CARD_HEIGHT)
                 .centerInside()
                 .into(cardView.mainImageView)
-            cardView.mainImageView.setPadding(0, 0, 0, 0)
+            cardView.mainImageView.setPadding(16, 16, 16, 16)
         } else if (cardItem is AppCardItem) {
             // Try to load real app icon
             try {
