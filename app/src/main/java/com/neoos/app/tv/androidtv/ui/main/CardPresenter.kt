@@ -17,8 +17,8 @@ interface CardItem {
     val cardIconRes: Int?
 }
 
-private const val CARD_WIDTH = 366
-private const val CARD_HEIGHT = 250
+private const val CARD_WIDTH = 313
+private const val CARD_HEIGHT = 176
 
 class CardPresenter : Presenter() {
 
@@ -40,6 +40,7 @@ class CardPresenter : Presenter() {
         cardView.titleText = cardItem.cardTitle
         cardView.contentText = cardItem.cardSubtitle ?: ""
         cardView.setMainImageDimensions(CARD_WIDTH, CARD_HEIGHT)
+        cardView.mainImageView.scaleType = android.widget.ImageView.ScaleType.CENTER_INSIDE
 
         if (!cardItem.cardImageUrl.isNullOrBlank()) {
             Picasso.get()
@@ -47,8 +48,23 @@ class CardPresenter : Presenter() {
                 .resize(CARD_WIDTH, CARD_HEIGHT)
                 .centerInside()
                 .into(cardView.mainImageView)
+            cardView.mainImageView.setPadding(0, 0, 0, 0)
+        } else if (cardItem is AppCardItem) {
+            // Try to load real app icon
+            try {
+                val pkg = cardItem.app.packageName
+                val icon = cardView.context.packageManager.getApplicationIcon(pkg)
+                cardView.mainImageView.setImageDrawable(icon)
+                cardView.mainImageView.setPadding(30, 30, 30, 30)
+                cardView.mainImageView.setBackgroundColor(Color.TRANSPARENT)
+            } catch (_: Exception) {
+                cardView.mainImageView.setImageResource(R.drawable.ic_placeholder)
+                cardView.mainImageView.setPadding(40, 40, 40, 40)
+                cardView.mainImageView.setBackgroundColor(Color.parseColor("#1E1E1E"))
+            }
         } else {
             cardView.mainImageView.setImageResource(cardItem.cardIconRes ?: R.drawable.ic_placeholder)
+            cardView.mainImageView.setPadding(40, 40, 40, 40)
             cardView.mainImageView.setBackgroundColor(Color.parseColor("#1E1E1E"))
         }
     }
