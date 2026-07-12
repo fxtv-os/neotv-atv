@@ -18,7 +18,7 @@ import com.neoos.neotv.util.BaseActivity
 
 /**
  * Full-screen live channel player.
- * Includes Timeline and track selection (Audio/Subtitles).
+ * Controls: Timeline, Audio/Subtitles (D-Pad Up/Down), and Stop (Back).
  */
 class PlaybackActivity : BaseActivity() {
 
@@ -84,9 +84,9 @@ class PlaybackActivity : BaseActivity() {
                 showTrackSelection(C.TRACK_TYPE_TEXT, getString(R.string.subtitles_selection))
                 return true
             }
-            // Captions button (if available)
-            KeyEvent.KEYCODE_CAPTIONS -> {
-                showTrackSelection(C.TRACK_TYPE_TEXT, getString(R.string.subtitles_selection))
+            // Media STOP key (on some remotes)
+            KeyEvent.KEYCODE_MEDIA_STOP -> {
+                finish()
                 return true
             }
         }
@@ -114,12 +114,14 @@ class PlaybackActivity : BaseActivity() {
             for (i in 0 until group.length) {
                 val format = group.getTrackFormat(i)
                 val label = format.language?.uppercase() ?: "Track ${i + 1}"
-                options.add(label)
+                val role = if (format.roleFlags and C.ROLE_FLAG_MAIN != 0) " (Main)" else ""
+                options.add("$label$role")
                 trackInfo.add(groupIdx to i)
             }
         }
 
-        AlertDialog.Builder(this, androidx.leanback.R.style.Theme_Leanback_Browse)
+        // Using a safe theme for the dialog to prevent ResourceID #0x0 crash
+        AlertDialog.Builder(this, androidx.appcompat.R.style.Theme_AppCompat_Dialog_Alert)
             .setTitle(title)
             .setItems(options.toTypedArray()) { _, which ->
                 val params = p.trackSelectionParameters.buildUpon()
