@@ -17,9 +17,8 @@ import com.neoos.neotv.R
 import com.neoos.neotv.util.BaseActivity
 
 /**
- * Full-screen live channel player with simplified TV controls.
- * Pressing BACK or CENTER/MENU stops the stream.
- * Pressing CAPTIONS (if available) toggles subtitles.
+ * Full-screen live channel player.
+ * Includes Timeline and track selection (Audio/Subtitles).
  */
 class PlaybackActivity : BaseActivity() {
 
@@ -37,6 +36,9 @@ class PlaybackActivity : BaseActivity() {
         setContentView(R.layout.activity_playback)
         playerView = findViewById(R.id.player_view)
         
+        // Configuration for TV usage
+        playerView.controllerShowTimeoutMs = 5000
+
         val streamUrl = intent.getStringExtra(EXTRA_STREAM_URL)
         if (streamUrl.isNullOrBlank()) {
             Toast.makeText(this, getString(R.string.playback_error), Toast.LENGTH_LONG).show()
@@ -63,69 +65,74 @@ class PlaybackActivity : BaseActivity() {
         exoPlayer.playWhenReady = true
     }
 
+    @OptIn(UnstableApi::class)
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
         when (keyCode) {
-            // BACK and DPAD_CENTER / ENTER / MENU will stop the playback and return to the grid
-            KeyEvent.KEYCODE_BACK,
-            KeyEvent.KEYCODE_DPAD_CENTER,
-            KeyEvent.KEYCODE_ENTER,
-            KeyEvent.KEYCODE_MENU -> {
-                finish()
+            KeyEvent.KEYCODE_DPAD_CENTER, KeyEvent.KEYCODE_ENTER, KeyEvent.KEYCODE_MENU -> {
+                if (!playerView.isControllerFullyVisible) {
+                    playerView.showController()
+                    return true
+                }
+            }
+            // Audio selection via D-Pad Up
+            KeyEvent.KEYCODE_DPAD_UP -> {
+                showTrackSelection(C.TRACK_TYPE_AUDIO, "Audio-Sprache wählen")
                 return true
             }
-            
-            // Dedicated button for subtitles (if the remote has one)
-            KeyEvent.KEYCODE_CAPTIONS, 175 -> {
-                showSubtitleSelection()
+            // Subtitle selection via D-Pad Down
+            KeyEvent.KEYCODE_DPAD_DOWN -> {
+                showTrackSelection(C.TRACK_TYPE_TEXT, getString(R.string.subtitles_selection))
+                return true
+            }
+            // Captions button (if available)
+            KeyEvent.KEYCODE_CAPTIONS -> {
+                showTrackSelection(C.TRACK_TYPE_TEXT, getString(R.string.subtitles_selection))
                 return true
             }
         }
-
         return super.onKeyDown(keyCode, event)
     }
 
-    private fun showSubtitleSelection() {
+    private fun showTrackSelection(trackType: Int, title: String) {
         val p = player ?: return
         val tracks = p.currentTracks
-        val textGroups = tracks.groups.filter { it.type == C.TRACK_TYPE_TEXT }
+        val groups = tracks.groups.filter { it.type == trackType }
         
-        if (textGroups.isEmpty()) {
-            Toast.makeText(this, getString(R.string.subtitles_none), Toast.LENGTH_SHORT).show()
+        if (groups.isEmpty()) {
+            Toast.makeText(this, "Keine Optionen verfügbar", Toast.LENGTH_SHORT).show()
             return
         }
 
         val options = mutableListOf<String>()
-        options.add(getString(R.string.subtitles_off))
+        if (trackType == C.TRACK_TYPE_TEXT) {
+            options.add(getString(R.string.subtitles_off))
+        }
         
         val trackInfo = mutableListOf<Pair<Int, Int>>() // GroupIndex, TrackIndex
         
-        textGroups.forEachIndexed { groupIdx, group ->
+        groups.forEachIndexed { groupIdx, group ->
             for (i in 0 until group.length) {
                 val format = group.getTrackFormat(i)
-                val label = format.language ?: "Track ${i + 1}"
+                val label = format.language?.uppercase() ?: "Track ${i + 1}"
                 options.add(label)
                 trackInfo.add(groupIdx to i)
             }
         }
 
         AlertDialog.Builder(this, androidx.leanback.R.style.Theme_Leanback_Browse)
-            .setTitle(getString(R.string.subtitles_selection))
+            .setTitle(title)
             .setItems(options.toTypedArray()) { _, which ->
-                if (which == 0) {
-                    // Disable subtitles by force
-                    p.trackSelectionParameters = p.trackSelectionParameters
-                        .buildUpon()
-                        .setTrackTypeDisabled(C.TRACK_TYPE_TEXT, true)
-                        .build()
+                val params = p.trackSelectionParameters.buildUpon()
+                
+                if (trackType == C.TRACK_TYPE_TEXT && which == 0) {
+                    params.setTrackTypeDisabled(C.TRACK_TYPE_TEXT, true)
                 } else {
-                    // Enable selected subtitle and clear "disabled" flag
-                    val (gIdx, tIdx) = trackInfo[which - 1]
-                    p.trackSelectionParameters = p.trackSelectionParameters
-                        .buildUpon()
-                        .setTrackTypeDisabled(C.TRACK_TYPE_TEXT, false)
-                        .setOverrideForType(TrackSelectionOverride(textGroups[gIdx].mediaTrackGroup, tIdx))
-                        .build()
+                    val offset = if (trackType == C.TRACK_TYPE_TEXT) 1 else 0
+                    val (gIdx, tIdx) = trackInfo[which - offset]
+                    params.setTrackTypeDisabled(trackType, false)
+                        .setOverrideForType(TrackSelectionOverride(groups[gIdx].mediaTrackGroup, tIdx))
                 }
+                p.trackSelectionParameters = params.build()
             }
             .show()
     }

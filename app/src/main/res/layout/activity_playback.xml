@@ -6,4 +6,7 @@
     android:layout_height="match_parent"
     android:background="@android:color/black"
     android:keepScreenOn="true"
-    app:use_controller="false" />
+    app:show_buffering="always"
+    app:show_shuffle_button="false"
+    app:show_subtitle_button="true"
+    app:use_controller="true" />

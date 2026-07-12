@@ -12,7 +12,7 @@ android {
         minSdk = 21
         targetSdk = 34
         versionCode = 1
-        versionName = "1.3.5_genericandroidtvdevice"
+        versionName = "1.3.7_genericandroidtvdevice"
     }
 
     buildTypes {
