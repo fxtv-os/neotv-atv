@@ -17,8 +17,9 @@ import com.neoos.neotv.R
 import com.neoos.neotv.util.BaseActivity
 
 /**
- * Full-screen live channel player. Uses Media3 ExoPlayer which natively
- * supports HLS (.m3u8) playback.
+ * Full-screen live channel player with simplified TV controls.
+ * Pressing BACK or CENTER/MENU stops the stream.
+ * Pressing CAPTIONS (if available) toggles subtitles.
  */
 class PlaybackActivity : BaseActivity() {
 
@@ -36,10 +37,6 @@ class PlaybackActivity : BaseActivity() {
         setContentView(R.layout.activity_playback)
         playerView = findViewById(R.id.player_view)
         
-        // Use Leanback/TV optimized UI for the player
-        playerView.controllerShowTimeoutMs = 3000
-        playerView.controllerHideOnTouch = true
-
         val streamUrl = intent.getStringExtra(EXTRA_STREAM_URL)
         if (streamUrl.isNullOrBlank()) {
             Toast.makeText(this, getString(R.string.playback_error), Toast.LENGTH_LONG).show()
@@ -67,19 +64,21 @@ class PlaybackActivity : BaseActivity() {
     }
 
     override fun onKeyDown(keyCode: Int, event: KeyEvent?): Boolean {
-        // Show subtitle selection on D-Pad Center or Menu key
-        if (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_MENU) {
-            if (!playerView.isControllerFullyVisible) {
-                playerView.showController()
+        when (keyCode) {
+            // BACK and DPAD_CENTER / ENTER / MENU will stop the playback and return to the grid
+            KeyEvent.KEYCODE_BACK,
+            KeyEvent.KEYCODE_DPAD_CENTER,
+            KeyEvent.KEYCODE_ENTER,
+            KeyEvent.KEYCODE_MENU -> {
+                finish()
                 return true
             }
-        }
-        
-        // Custom subtitle selection trigger (using CAPTIONS or long-press handled here)
-        // Note: KEYCODE_SUBTITLE might not be available on all API levels, using 175 literal or checking if defined
-        if (keyCode == KeyEvent.KEYCODE_CAPTIONS || keyCode == 175) {
-            showSubtitleSelection()
-            return true
+            
+            // Dedicated button for subtitles (if the remote has one)
+            KeyEvent.KEYCODE_CAPTIONS, 175 -> {
+                showSubtitleSelection()
+                return true
+            }
         }
 
         return super.onKeyDown(keyCode, event)
@@ -87,9 +86,10 @@ class PlaybackActivity : BaseActivity() {
 
     private fun showSubtitleSelection() {
         val p = player ?: return
-        val trackGroups = p.currentTracks.groups.filter { it.type == C.TRACK_TYPE_TEXT }
+        val tracks = p.currentTracks
+        val textGroups = tracks.groups.filter { it.type == C.TRACK_TYPE_TEXT }
         
-        if (trackGroups.isEmpty()) {
+        if (textGroups.isEmpty()) {
             Toast.makeText(this, getString(R.string.subtitles_none), Toast.LENGTH_SHORT).show()
             return
         }
@@ -99,7 +99,7 @@ class PlaybackActivity : BaseActivity() {
         
         val trackInfo = mutableListOf<Pair<Int, Int>>() // GroupIndex, TrackIndex
         
-        trackGroups.forEachIndexed { groupIdx, group ->
+        textGroups.forEachIndexed { groupIdx, group ->
             for (i in 0 until group.length) {
                 val format = group.getTrackFormat(i)
                 val label = format.language ?: "Track ${i + 1}"
@@ -112,18 +112,18 @@ class PlaybackActivity : BaseActivity() {
             .setTitle(getString(R.string.subtitles_selection))
             .setItems(options.toTypedArray()) { _, which ->
                 if (which == 0) {
-                    // Disable subtitles
+                    // Disable subtitles by force
                     p.trackSelectionParameters = p.trackSelectionParameters
                         .buildUpon()
                         .setTrackTypeDisabled(C.TRACK_TYPE_TEXT, true)
                         .build()
                 } else {
-                    // Enable selected subtitle
+                    // Enable selected subtitle and clear "disabled" flag
                     val (gIdx, tIdx) = trackInfo[which - 1]
                     p.trackSelectionParameters = p.trackSelectionParameters
                         .buildUpon()
                         .setTrackTypeDisabled(C.TRACK_TYPE_TEXT, false)
-                        .setOverrideForType(TrackSelectionOverride(trackGroups[gIdx].mediaTrackGroup, tIdx))
+                        .setOverrideForType(TrackSelectionOverride(textGroups[gIdx].mediaTrackGroup, tIdx))
                         .build()
                 }
             }
