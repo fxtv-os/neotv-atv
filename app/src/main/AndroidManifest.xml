@@ -68,7 +68,7 @@
             android:exported="false"
             android:configChanges="screenSize|smallestScreenSize|screenLayout|orientation"
             android:screenOrientation="landscape"
-            android:theme="@style/Theme.NeoTV.Browse"
+            android:theme="@style/Theme.NeoTV.Settings"
             tools:ignore="LockedOrientationActivity" />
 
     </application>

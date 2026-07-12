@@ -13,7 +13,6 @@ class SettingsFragment : PreferenceFragmentCompat() {
 
         findPreference<ListPreference>("pref_language")?.setOnPreferenceChangeListener { _, newValue ->
             LocaleHelper.setLanguage(requireContext(), newValue as String)
-            // Recreate so the settings screen itself updates immediately.
             requireActivity().recreate()
             true
         }

@@ -29,6 +29,9 @@
         <item name="android:background">@color/card_bg</item>
     </style>
 
-    <style name="Theme.NeoTV.Settings" parent="Theme.Leanback.GuidedStep" />
+    <style name="Theme.NeoTV.Settings" parent="Theme.Leanback">
+        <item name="preferenceTheme">@style/PreferenceThemeOverlay</item>
+        <item name="android:windowBackground">@color/bg_dark</item>
+    </style>
 
 </resources>
