@@ -1,13 +1,26 @@
 #!/bin/bash
 
 # --- CONFIGURATION ---
-# Set your GitHub PAT here, or pass it as an environment variable (export GITHUB_TOKEN=...)
-GITHUB_TOKEN="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"
+# IMPORTANT: DO NOT hardcode your GitHub PAT here.
+# Set it as an environment variable: export GITHUB_TOKEN=ghp_...
+# Or create a file named .env_token (which is git-ignored) and put it there.
 
 REPO_URL="github.com/fxtv-os/neotv-atv.git"
 BRANCH="main"
 PKG_DIR="./packages"
+
+# Load token from local file if it exists
+if [ -f ".env_token" ]; then
+    source .env_token
+fi
 # ---------------------
+
+if [ -z "$GITHUB_TOKEN" ]; then
+    echo "❌ ERROR: GITHUB_TOKEN is not set."
+    echo "Please run: export GITHUB_TOKEN=your_token_here"
+    echo "Or create a file '.env_token' with: export GITHUB_TOKEN=your_token_here"
+    exit 1
+fi
 
 echo "⚡ Starte NeoTV+ All-in-One Build..."
 
@@ -20,7 +33,7 @@ fi
 export JAVA_HOME=${JAVA_HOME:-/usr/lib/jvm/java-17-openjdk-amd64}
 echo "☕ Nutze JAVA_HOME: $JAVA_HOME"
 
-# 2. Extract Version from build.gradle.kts to avoid overwriting old versions
+# 2. Extract Version from build.gradle.kts
 VERSION=$(grep "versionName =" app/build.gradle.kts | sed 's/.*"\(.*\)".*/\1/')
 APP_ID=$(grep "applicationId =" app/build.gradle.kts | sed 's/.*"\(.*\)".*/\1/')
 
@@ -38,7 +51,7 @@ echo "🏗️  Starte Gradle-Build (clean assemble bundle)..."
 if [ $? -eq 0 ]; then
     echo "📦 Archiviere neue Version $VERSION..."
     
-    # APKs archive (using versioned names)
+    # APKs archive
     cp app/build/outputs/apk/debug/app-debug.apk "$PKG_DIR/apk/debug/${APP_ID}_${VERSION}_debug.apk" 2>/dev/null
     cp app/build/outputs/apk/release/app-release-unsigned.apk "$PKG_DIR/apk/release/${APP_ID}_${VERSION}_release.apk" 2>/dev/null
     cp app/build/outputs/apk/release/app-release.apk "$PKG_DIR/apk/release/${APP_ID}_${VERSION}_release.apk" 2>/dev/null
@@ -57,7 +70,6 @@ if [ $? -eq 0 ]; then
         git checkout -b "$BRANCH"
     fi
 
-    # Add EVERYTHING so the source code doesn't disappear from GitHub
     git add .
 
     if git diff --cached --quiet; then
@@ -66,13 +78,8 @@ if [ $? -eq 0 ]; then
         echo "📤 Pushe Projekt und Builds auf GitHub..."
         git commit -m "Build: ${VERSION} ($(date +'%Y-%m-%d %H:%M'))"
 
-        if [ -n "$GITHUB_TOKEN" ]; then
-            PUSH_URL="https://$GITHUB_TOKEN@$REPO_URL"
-            # Try normal push first to preserve history
-            git push "$PUSH_URL" "$BRANCH" || git push "$PUSH_URL" "$BRANCH" --force
-        else
-            git push origin "$BRANCH"
-        fi
+        PUSH_URL="https://$GITHUB_TOKEN@$REPO_URL"
+        git push "$PUSH_URL" "$BRANCH" --force
         
         if [ $? -eq 0 ]; then
             echo "🎉 Erfolgreich auf GitHub aktualisiert!"
