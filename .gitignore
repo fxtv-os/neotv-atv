@@ -14,3 +14,16 @@
 .cxx
 local.properties
 .env_token
+
+# --- Ab hier: nur noch packages/ (fertige APK/AAB-Builds) wird gepusht. ---
+# Die Regeln oben sind dadurch technisch redundant (werden ohnehin von
+# der Zeile "/*" mit abgedeckt), bleiben aber als Doku/Fallback stehen,
+# falls die Strategie später mal wechselt.
+
+# Alles auf oberster Ebene ignorieren...
+/*
+
+# ...außer diese hier:
+!/packages/
+!/.gitignore
+!/logs/

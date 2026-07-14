@@ -153,13 +153,21 @@ if [ "$DIFF_LINE_COUNT" -gt "$DIFF_MAX_LINES" ]; then
 [... Diff gekürzt: ${DIFF_LINE_COUNT} Zeilen insgesamt, nur die ersten ${DIFF_MAX_LINES} wurden an die KI geschickt ...]"
 fi
 
-# Kostenlose Fallback-Übersicht (wird immer erzeugt, genutzt falls kein AI-Key gesetzt ist)
-FALLBACK_OVERVIEW="## Änderungen seit ${PREV_TAG:-Projektbeginn}
+# Fester Header-Block: Version wird IMMER vom Skript gesetzt, nie von der KI,
+# damit hier garantiert die korrekte Versionsnummer steht.
+FIXED_HEADER="## Release-Übersicht
 
-### Commits
+### Neue Version
+- Build: ${VERSION}
+"
+
+# Kostenlose Fallback-Übersicht (wird immer erzeugt, genutzt falls kein AI-Key gesetzt ist)
+FALLBACK_OVERVIEW="${FIXED_HEADER}
+### Änderungen
 ${COMMIT_LOG:-Keine Commit-Historie gefunden.}
 
-### Geänderte Dateien
+### Sonstiges
+- Automatisch generierte Übersicht (ohne KI) basierend auf Commits und Diff-Statistik
 \`\`\`
 ${DIFF_STAT}
 \`\`\`"
@@ -167,7 +175,15 @@ ${DIFF_STAT}
 RELEASE_BODY="$FALLBACK_OVERVIEW"
 
 PROMPT_TEXT=$(cat <<EOF
-Du bekommst eine Commit-Liste und den tatsächlichen Code-Diff zwischen zwei Versionen einer Android-App (NeoTV+). Erstelle daraus eine kurze, gut lesbare Release-Übersicht auf Deutsch in Markdown für GitHub Releases, die konkret beschreibt WAS sich inhaltlich geändert hat (nicht nur welche Dateien). Gliedere sinnvoll (z.B. Neue Features, Fixes, Sonstiges) falls erkennbar, ansonsten eine einfache Liste. Halte es kompakt (max. ca. 200 Wörter). Gib NUR die fertige Markdown-Übersicht zurück, keine Einleitung, keine Erklärung.
+Du bekommst eine Commit-Liste und den tatsächlichen Code-Diff zwischen zwei Versionen einer Android-App (NeoTV+). Erstelle daraus eine Release-Übersicht auf Deutsch, die GENAU diesem Markdown-Format folgt (nichts davon abweichen, keine zusätzlichen Abschnitte, keine Einleitung, keine Erklärung):
+
+### Änderungen
+- Konkrete, inhaltliche Änderungen als Stichpunkte (was sich im Code tatsächlich geändert hat, nicht nur Dateinamen)
+
+### Sonstiges
+- Kleinere/technische Anpassungen, die nicht als Hauptänderung zählen (z.B. Build-Konfiguration, Formatierung, Abhängigkeiten)
+
+Falls es nichts für einen der beiden Abschnitte gibt, schreibe dort "- Keine." Halte es kompakt (max. ca. 200 Wörter insgesamt). Gib NUR diese zwei Abschnitte zurück, beginnend mit "### Änderungen".
 
 Commits:
 ${COMMIT_LOG:-Keine Commit-Historie gefunden.}
@@ -226,7 +242,8 @@ except Exception:
 ')
 
     if [ -n "$HF_TEXT" ]; then
-        RELEASE_BODY="$HF_TEXT"
+        RELEASE_BODY="${FIXED_HEADER}
+${HF_TEXT}"
         echo "✅ KI-Übersicht (Hugging Face) erstellt."
     else
         echo "⚠️  Hugging-Face-Anfrage fehlgeschlagen. Details siehe: $HF_LOG_FILE"
@@ -264,7 +281,8 @@ except Exception:
 ')
 
     if [ -n "$AI_TEXT" ]; then
-        RELEASE_BODY="$AI_TEXT"
+        RELEASE_BODY="${FIXED_HEADER}
+${AI_TEXT}"
         echo "✅ KI-Übersicht erstellt."
     else
         echo "⚠️  KI-Anfrage fehlgeschlagen, nutze automatische Übersicht (git log) stattdessen."

@@ -137,3 +137,27 @@ BUILD SUCCESSFUL in 44s
 📦 Archiviere neue Version 2.0.4_genericandroidtvdevice...
 ✅ Archivierung abgeschlossen!
 🗂️ Bereite Git-Commit vor...
+📤 Pushe Projekt und Builds auf GitHub...
+[main ef68354] Build: 2.0.4_genericandroidtvdevice (2026-07-14 13:02)
+ 8 files changed, 174 insertions(+), 1 deletion(-)
+ create mode 100644 logs/build_20260714_130149.log
+ create mode 100644 logs/huggingface_20260714_130025.log
+ create mode 100644 packages/aab/debug/com.neoos.app.tv.androidtv_2.0.4_genericandroidtvdevice_debug.aab
+ create mode 100644 packages/aab/release/com.neoos.app.tv.androidtv_2.0.4_genericandroidtvdevice_release.aab
+ create mode 100644 packages/apk/debug/com.neoos.app.tv.androidtv_2.0.4_genericandroidtvdevice_debug.apk
+ create mode 100644 packages/apk/release/com.neoos.app.tv.androidtv_2.0.4_genericandroidtvdevice_release.apk
+To https://github.com/fxtv-os/neotv-atv.git
+   287bc6b..ef68354  main -> main
+🎉 Erfolgreich auf GitHub aktualisiert!
+To https://github.com/fxtv-os/neotv-atv.git
+ * [new tag]         v2.0.4_genericandroidtvdevice -> v2.0.4_genericandroidtvdevice
+🏷️  Tag v2.0.4_genericandroidtvdevice erstellt und gepusht.
+📝 Erstelle Release-Übersicht...
+🤖 HF_TOKEN gefunden – erstelle KI-Übersicht über Hugging Face...
+📄 Hugging-Face-Log gespeichert: ./logs/huggingface_20260714_130149.log
+✅ KI-Übersicht (Hugging Face) erstellt.
+🚀 Erstelle GitHub Release v2.0.4_genericandroidtvdevice...
+✅ Release v2.0.4_genericandroidtvdevice erstellt.
+📎 Lade com.neoos.app.tv.androidtv_2.0.4_genericandroidtvdevice_release.apk hoch...
+📎 Lade com.neoos.app.tv.androidtv_2.0.4_genericandroidtvdevice_release.aab hoch...
+🎉 Fertig! Release v2.0.4_genericandroidtvdevice inkl. Übersicht und Build-Artefakten ist online.
