@@ -14,6 +14,15 @@
 REPO_URL="github.com/fxtv-os/neotv-atv.git"
 BRANCH="main"
 PKG_DIR="./packages"
+LOG_DIR="./logs"
+TIMESTAMP=$(date +'%Y%m%d_%H%M%S')
+
+mkdir -p "$LOG_DIR"
+BUILD_LOG="$LOG_DIR/build_${TIMESTAMP}.log"
+
+# Ab hier wird die komplette Ausgabe des Skripts zusätzlich in eine Log-Datei
+# geschrieben (und weiterhin normal im Terminal angezeigt).
+exec > >(tee -a "$BUILD_LOG") 2>&1
 
 # Load token(s) from local file if it exists
 if [ -f ".env_token" ]; then
@@ -170,10 +179,26 @@ print(json.dumps({
 }))
 ' "$HF_MODEL" <<< "$PROMPT_TEXT")
 
+    HF_LOG_FILE="$LOG_DIR/huggingface_${TIMESTAMP}.log"
+    {
+        echo "=== HF Request (${TIMESTAMP}) ==="
+        echo "Model: $HF_MODEL"
+        echo "--- Payload ---"
+        echo "$HF_JSON_PAYLOAD"
+    } > "$HF_LOG_FILE"
+
     HF_RESPONSE=$(curl -s https://router.huggingface.co/v1/chat/completions \
         -H "Authorization: Bearer ${HF_TOKEN}" \
         -H "Content-Type: application/json" \
         -d "$HF_JSON_PAYLOAD")
+
+    {
+        echo ""
+        echo "--- Raw Response ---"
+        echo "$HF_RESPONSE"
+    } >> "$HF_LOG_FILE"
+
+    echo "📄 Hugging-Face-Log gespeichert: $HF_LOG_FILE"
 
     HF_TEXT=$(echo "$HF_RESPONSE" | python3 -c '
 import json, sys
@@ -188,8 +213,7 @@ except Exception:
         RELEASE_BODY="$HF_TEXT"
         echo "✅ KI-Übersicht (Hugging Face) erstellt."
     else
-        echo "⚠️  Hugging-Face-Anfrage fehlgeschlagen. Antwort:"
-        echo "$HF_RESPONSE"
+        echo "⚠️  Hugging-Face-Anfrage fehlgeschlagen. Details siehe: $HF_LOG_FILE"
         echo "ℹ️  Versuche Anthropic als Fallback (falls Key gesetzt) oder nutze automatische Übersicht."
     fi
 fi
