@@ -132,9 +132,25 @@ echo "📝 Erstelle Release-Übersicht..."
 if [ -n "$PREV_TAG" ] && [ "$PREV_TAG" != "$TAG_NAME" ]; then
     COMMIT_LOG=$(git log "${PREV_TAG}..${TAG_NAME}" --pretty=format:"- %s (%an)" 2>/dev/null)
     DIFF_STAT=$(git diff "${PREV_TAG}" "${TAG_NAME}" --stat 2>/dev/null | tail -n 20)
+    # Voller Diff-Inhalt für die KI (Binärdateien wie APK/AAB werden von git
+    # diff automatisch als "Binary files differ" ausgegeben, nicht als Inhalt).
+    DIFF_CONTENT_RAW=$(git diff "${PREV_TAG}" "${TAG_NAME}" -- . ':(exclude)packages' 2>/dev/null)
 else
     COMMIT_LOG=$(git log --pretty=format:"- %s (%an)" -n 30 2>/dev/null)
     DIFF_STAT="(Erster Release – kein Vorgänger-Tag gefunden)"
+    DIFF_CONTENT_RAW=""
+fi
+
+# Diff-Inhalt für den KI-Prompt auf eine sinnvolle Größe kappen, damit die
+# Anfrage nicht zu groß/teuer wird (Token-Limit). Bei Bedarf über
+# DIFF_MAX_LINES anpassbar.
+DIFF_MAX_LINES="${DIFF_MAX_LINES:-800}"
+DIFF_CONTENT=$(echo "$DIFF_CONTENT_RAW" | head -n "$DIFF_MAX_LINES")
+DIFF_LINE_COUNT=$(echo "$DIFF_CONTENT_RAW" | wc -l | tr -d ' ')
+if [ "$DIFF_LINE_COUNT" -gt "$DIFF_MAX_LINES" ]; then
+    DIFF_CONTENT="${DIFF_CONTENT}
+
+[... Diff gekürzt: ${DIFF_LINE_COUNT} Zeilen insgesamt, nur die ersten ${DIFF_MAX_LINES} wurden an die KI geschickt ...]"
 fi
 
 # Kostenlose Fallback-Übersicht (wird immer erzeugt, genutzt falls kein AI-Key gesetzt ist)
@@ -151,13 +167,13 @@ ${DIFF_STAT}
 RELEASE_BODY="$FALLBACK_OVERVIEW"
 
 PROMPT_TEXT=$(cat <<EOF
-Du bekommst eine Commit-Liste und eine Diff-Statistik zwischen zwei Versionen einer Android-App (NeoTV+). Erstelle daraus eine kurze, gut lesbare Release-Übersicht auf Deutsch in Markdown für GitHub Releases. Gliedere sinnvoll (z.B. Neue Features, Fixes, Sonstiges) falls erkennbar, ansonsten eine einfache Liste. Halte es kompakt (max. ca. 150 Wörter). Gib NUR die fertige Markdown-Übersicht zurück, keine Einleitung, keine Erklärung.
+Du bekommst eine Commit-Liste und den tatsächlichen Code-Diff zwischen zwei Versionen einer Android-App (NeoTV+). Erstelle daraus eine kurze, gut lesbare Release-Übersicht auf Deutsch in Markdown für GitHub Releases, die konkret beschreibt WAS sich inhaltlich geändert hat (nicht nur welche Dateien). Gliedere sinnvoll (z.B. Neue Features, Fixes, Sonstiges) falls erkennbar, ansonsten eine einfache Liste. Halte es kompakt (max. ca. 200 Wörter). Gib NUR die fertige Markdown-Übersicht zurück, keine Einleitung, keine Erklärung.
 
 Commits:
 ${COMMIT_LOG:-Keine Commit-Historie gefunden.}
 
-Geänderte Dateien:
-${DIFF_STAT}
+Code-Diff:
+${DIFF_CONTENT:-Kein Diff verfügbar.}
 EOF
 )
 
