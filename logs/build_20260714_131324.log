@@ -137,3 +137,16 @@ BUILD SUCCESSFUL in 57s
 📦 Archiviere neue Version 2.0.6_genericandroidtvdevice...
 ✅ Archivierung abgeschlossen!
 🗂️ Bereite Git-Commit vor...
+📤 Pushe Projekt und Builds auf GitHub...
+[main 3b6aa84] Build: 2.0.6_genericandroidtvdevice (2026-07-14 13:14)
+ 10 files changed, 209 insertions(+), 8 deletions(-)
+ create mode 100644 logs/build_20260714_131324.log
+ create mode 100644 logs/huggingface_20260714_130149.log
+ create mode 100644 packages/aab/debug/com.neoos.app.tv.androidtv_2.0.6_genericandroidtvdevice_debug.aab
+ create mode 100644 packages/aab/release/com.neoos.app.tv.androidtv_2.0.6_genericandroidtvdevice_release.aab
+ create mode 100644 packages/apk/debug/com.neoos.app.tv.androidtv_2.0.6_genericandroidtvdevice_debug.apk
+ create mode 100644 packages/apk/release/com.neoos.app.tv.androidtv_2.0.6_genericandroidtvdevice_release.apk
+To https://github.com/fxtv-os/neotv-atv.git
+ ! [remote rejected] main -> main (cannot lock ref 'refs/heads/main': is at 0ed6dbbcdb9c34c357000764877f943e9d9848a9 but expected e1e43ab0c63961ab50fddeeaf412d86de6a370e2)
+Fehler: Fehler beim Versenden einiger Referenzen nach 'https://github.com/fxtv-os/neotv-atv.git'
+❌ Fehler beim Pushen!
