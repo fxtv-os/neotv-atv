@@ -78,7 +78,7 @@ if [ $? -eq 0 ]; then
         echo "📤 Pushe Projekt und Builds auf GitHub..."
         git commit -m "Build: ${VERSION} ($(date +'%Y-%m-%d %H:%M'))"
 
-        PUSH_URL="https://$GITHUB_TOKEN@$REPO_URL"
+        PUSH_URL="https://oauth2:${GITHUB_TOKEN}@${REPO_URL}"
         git push "$PUSH_URL" "$BRANCH" --force
         
         if [ $? -eq 0 ]; then
