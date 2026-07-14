@@ -137,3 +137,30 @@ BUILD SUCCESSFUL in 55s
 📦 Archiviere neue Version 2.0.3_genericandroidtvdevice...
 ✅ Archivierung abgeschlossen!
 🗂️ Bereite Git-Commit vor...
+📤 Pushe Projekt und Builds auf GitHub...
+[main 287bc6b] Build: 2.0.3_genericandroidtvdevice (2026-07-14 13:01)
+ 8 files changed, 188 insertions(+), 3 deletions(-)
+ create mode 100644 logs/build_20260714_130025.log
+ create mode 100644 logs/huggingface_20260714_125542.log
+To https://github.com/fxtv-os/neotv-atv.git
+   040e252..287bc6b  main -> main
+🎉 Erfolgreich auf GitHub aktualisiert!
+ℹ️ Tag v2.0.3_genericandroidtvdevice existiert bereits, überspringe Tag-Erstellung.
+📝 Erstelle Release-Übersicht...
+🤖 HF_TOKEN gefunden – erstelle KI-Übersicht über Hugging Face...
+📄 Hugging-Face-Log gespeichert: ./logs/huggingface_20260714_130025.log
+✅ KI-Übersicht (Hugging Face) erstellt.
+🚀 Erstelle GitHub Release v2.0.3_genericandroidtvdevice...
+❌ Release konnte nicht erstellt werden. Antwort von GitHub:
+{
+  "message": "Validation Failed",
+  "errors": [
+    {
+      "resource": "Release",
+      "code": "already_exists",
+      "field": "tag_name"
+    }
+  ],
+  "documentation_url": "https://docs.github.com/rest/releases/releases#create-a-release",
+  "status": "422"
+}
