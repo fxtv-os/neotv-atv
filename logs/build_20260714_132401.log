@@ -137,3 +137,30 @@ BUILD SUCCESSFUL in 30s
 📦 Archiviere neue Version 2.0.9_genericandroidtvdevice...
 ✅ Archivierung abgeschlossen!
 🗂️ Bereite Git-Commit vor...
+📤 Pushe Projekt und Builds auf GitHub...
+[main 57129f6] Build: 2.0.9_genericandroidtvdevice (2026-07-14 13:24)
+ 5 files changed, 139 insertions(+)
+ create mode 100644 logs/build_20260714_132401.log
+ create mode 100644 packages/aab/debug/com.neoos.app.tv.androidtv_2.0.9_genericandroidtvdevice_debug.aab
+ create mode 100644 packages/aab/release/com.neoos.app.tv.androidtv_2.0.9_genericandroidtvdevice_release.aab
+ create mode 100644 packages/apk/debug/com.neoos.app.tv.androidtv_2.0.9_genericandroidtvdevice_debug.apk
+ create mode 100644 packages/apk/release/com.neoos.app.tv.androidtv_2.0.9_genericandroidtvdevice_release.apk
+To https://github.com/fxtv-os/neotv-atv.git
+   e8f4b71..57129f6  main -> main
+🎉 Erfolgreich auf GitHub aktualisiert!
+To https://github.com/fxtv-os/neotv-atv.git
+ * [new tag]         v2.0.9_genericandroidtvdevice -> v2.0.9_genericandroidtvdevice
+🏷️  Tag v2.0.9_genericandroidtvdevice erstellt und gepusht.
+📝 Erstelle Release-Übersicht...
+🤖 HF_TOKEN gefunden – erstelle KI-Übersicht über Hugging Face...
+./build_all.sh: line 225: /usr/bin/curl: Argument list too long
+📄 Hugging-Face-Log gespeichert: ./logs/huggingface_20260714_132401.log
+⚠️  Hugging-Face-Anfrage fehlgeschlagen. Details siehe: ./logs/huggingface_20260714_132401.log
+ℹ️  Versuche Anthropic als Fallback (falls Key gesetzt) oder nutze automatische Übersicht.
+ℹ️  Kein HF_TOKEN/ANTHROPIC_API_KEY gesetzt – nutze kostenlose, automatische Übersicht (git log/diff).
+🚀 Erstelle GitHub Release v2.0.9_genericandroidtvdevice...
+✅ Release v2.0.9_genericandroidtvdevice erstellt.
+📎 Lade com.neoos.app.tv.androidtv_2.0.9_genericandroidtvdevice_release.apk hoch...
+📎 Lade com.neoos.app.tv.androidtv_2.0.9_genericandroidtvdevice_release.aab hoch...
+./build_all.sh: line 354: unexpected EOF while looking for matching `"'
+./build_all.sh: line 355: syntax error: unexpected end of file
