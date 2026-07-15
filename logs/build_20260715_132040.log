@@ -1,0 +1,67 @@
+⚡ Starte NeoTV+ All-in-One Build...
+☕ Nutze JAVA_HOME: /usr/local/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home
+🏷️  Erkannte Version: 2.2.2_genericandroidtvdevice
+🏗️  Starte Gradle-Build (clean assemble bundle)...
+WARNING: We recommend using a newer Android Gradle plugin to use compileSdk = 35
+
+This Android Gradle plugin (8.5.0) was tested up to compileSdk = 34.
+
+You are strongly encouraged to update your project to use a newer
+Android Gradle plugin that has been tested with compileSdk = 35.
+
+If you are already using the latest version of the Android Gradle plugin,
+you may need to wait until a newer version with support for compileSdk = 35 is available.
+
+For more information refer to the compatibility table:
+https://d.android.com/r/tools/api-level-support
+
+To suppress this warning, add/update
+    android.suppressUnsupportedCompileSdk=35
+to this project's gradle.properties.
+> Task :app:clean
+> Task :app:buildKotlinToolingMetadata
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseResValues
+> Task :app:dataBindingMergeDependencyArtifactsRelease
+> Task :app:generateReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:checkReleaseAarMetadata FAILED
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:parseReleaseLocalResources
+> Task :app:mergeReleaseResources
+
+[Incubating] Problems report is available at: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/build/reports/problems/problems-report.html
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':app:checkReleaseAarMetadata'.
+> A failure occurred while executing com.android.build.gradle.internal.tasks.CheckAarMetadataWorkAction
+   > 2 issues were found when checking AAR metadata:
+     
+       1.  Dependency 'androidx.leanback:leanback-grid:1.0.0' requires Android Gradle plugin 8.6.0 or higher.
+     
+           This build currently uses Android Gradle plugin 8.5.0.
+     
+       2.  Dependency 'androidx.leanback:leanback:1.2.0' requires Android Gradle plugin 8.6.0 or higher.
+     
+           This build currently uses Android Gradle plugin 8.5.0.
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights from a Build Scan (powered by Develocity).
+> Get more help at https://help.gradle.org.
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.4.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD FAILED in 4s
+12 actionable tasks: 12 executed
+❌ Build fehlgeschlagen!

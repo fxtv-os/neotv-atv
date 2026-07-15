@@ -1,0 +1,54 @@
+⚡ Starte NeoTV+ All-in-One Build...
+☕ Nutze JAVA_HOME: /usr/local/Cellar/openjdk@17/17.0.19/libexec/openjdk.jdk/Contents/Home
+🏷️  Erkannte Version: 2.2.2_genericandroidtvdevice
+🏗️  Starte Gradle-Build (clean assemble bundle)...
+> Task :app:clean
+> Task :app:checkKotlinGradlePluginConfigurationErrors
+> Task :app:preBuild UP-TO-DATE
+> Task :app:preReleaseBuild UP-TO-DATE
+> Task :app:generateReleaseResValues
+> Task :app:dataBindingMergeDependencyArtifactsRelease
+> Task :app:generateReleaseResources
+> Task :app:mergeReleaseResources
+> Task :app:packageReleaseResources
+> Task :app:checkReleaseAarMetadata
+> Task :app:mapReleaseSourceSetPaths
+> Task :app:createReleaseCompatibleScreenManifests
+> Task :app:extractDeepLinksRelease
+> Task :app:parseReleaseLocalResources
+> Task :app:processReleaseMainManifest
+> Task :app:processReleaseManifest
+> Task :app:buildKotlinToolingMetadata
+> Task :app:javaPreCompileRelease
+> Task :app:extractProguardFiles
+> Task :app:mergeReleaseJniLibFolders
+> Task :app:mergeReleaseNativeLibs NO-SOURCE
+> Task :app:dataBindingGenBaseClassesRelease
+> Task :app:stripReleaseDebugSymbols NO-SOURCE
+> Task :app:extractReleaseNativeSymbolTables NO-SOURCE
+> Task :app:mergeReleaseNativeDebugMetadata NO-SOURCE
+> Task :app:processReleaseManifestForPackage
+> Task :app:checkReleaseDuplicateClasses
+> Task :app:processReleaseResources
+> Task :app:desugarReleaseFileDependencies
+> Task :app:mergeReleaseStartupProfile
+
+> Task :app:compileReleaseKotlin
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:37:5 Override 'fun onBindViewHolder(viewHolder: Presenter.ViewHolder, item: Any): Unit' has incorrect nullability in its signature comparing with overridden 'fun onBindViewHolder(p0: Presenter.ViewHolder!, p1: Any?): Unit'This warning will become an error soon. See https://youtrack.jetbrains.com/issue/KT-36770 for details
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:43:9 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:51:13 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:57:17 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:58:17 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:59:17 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:61:17 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:62:17 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:63:17 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:66:13 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:67:13 Unsafe use of a nullable receiver of type ImageView?
+w: file:///Users/jonakorves/AndroidStudioProjects/NeoTV+/app/src/main/java/com/neoos/app/tv/androidtv/ui/main/CardPresenter.kt:68:13 Unsafe use of a nullable receiver of type ImageView?
+
+> Task :app:mergeExtDexRelease
+> Task :app:compileReleaseJavaWithJavac
+> Task :app:generateReleaseLintVitalReportModel
+> Task :app:lintVitalAnalyzeRelease
+❌ Build fehlgeschlagen!
