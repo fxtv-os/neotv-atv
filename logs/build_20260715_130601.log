@@ -137,3 +137,33 @@ BUILD SUCCESSFUL in 1m 17s
 📦 Archiviere neue Version 2.1.6_genericandroidtvdevice...
 ✅ Archivierung abgeschlossen!
 🗂️ Bereite Git-Commit vor...
+📤 Pushe Projekt und Builds auf GitHub...
+[main 60f7d9c] Build: 2.1.6_genericandroidtvdevice (2026-07-15 13:07)
+ 10 files changed, 3471 insertions(+)
+ create mode 100644 logs/build_20260715_125914.log
+ create mode 100644 logs/build_20260715_130209.log
+ create mode 100644 logs/build_20260715_130254.log
+ create mode 100644 logs/build_20260715_130317.log
+ create mode 100644 logs/build_20260715_130601.log
+ create mode 100644 logs/huggingface_20260715_125101.log
+ create mode 100644 packages/aab/debug/com.neoos.app.tv.androidtv_2.1.6_genericandroidtvdevice_debug.aab
+ create mode 100644 packages/aab/release/com.neoos.app.tv.androidtv_2.1.6_genericandroidtvdevice_release.aab
+ create mode 100644 packages/apk/debug/com.neoos.app.tv.androidtv_2.1.6_genericandroidtvdevice_debug.apk
+ create mode 100644 packages/apk/release/com.neoos.app.tv.androidtv_2.1.6_genericandroidtvdevice_release.apk
+To https://github.com/fxtv-os/neotv-atv.git
+ + d225136...60f7d9c main -> main (forced update)
+🎉 Erfolgreich auf GitHub aktualisiert!
+To https://github.com/fxtv-os/neotv-atv.git
+ * [new tag]         v2.1.6_genericandroidtvdevice -> v2.1.6_genericandroidtvdevice
+🏷️  Tag v2.1.6_genericandroidtvdevice erstellt und gepusht.
+📝 Erstelle Release-Übersicht...
+🤖 HF_TOKEN gefunden – erstelle KI-Übersicht über Hugging Face...
+📄 Hugging-Face-Log gespeichert: ./logs/huggingface_20260715_130601.log
+⚠️  Hugging-Face-Anfrage fehlgeschlagen. Details siehe: ./logs/huggingface_20260715_130601.log
+ℹ️  Versuche Anthropic als Fallback (falls Key gesetzt) oder nutze automatische Übersicht.
+ℹ️  Kein HF_TOKEN/ANTHROPIC_API_KEY gesetzt – nutze kostenlose, automatische Übersicht (git log/diff).
+🚀 Erstelle GitHub Release v2.1.6_genericandroidtvdevice...
+✅ Release v2.1.6_genericandroidtvdevice erstellt.
+📎 Lade com.neoos.app.tv.androidtv_2.1.6_genericandroidtvdevice_release.apk hoch...
+📎 Lade com.neoos.app.tv.androidtv_2.1.6_genericandroidtvdevice_release.aab hoch...
+🎉 Fertig! Release v2.1.6_genericandroidtvdevice inkl. Übersicht und Build-Artefakten ist online.
