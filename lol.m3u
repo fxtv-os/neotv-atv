@@ -1,0 +1,3 @@
+#EXTM3U
+#EXTINF:-1 tvg-id="gopnik.tv" tvg-name="Gopnik TV" tvg-logo="" group-title="Gopnik TV",Gopnik TV
+http://192.168.178.161:8090/stream.m3u8
