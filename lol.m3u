@@ -1,5 +1,5 @@
 #EXTM3U
 #EXTINF:-1 tvg-id="gopnik-tv-locked.ru" tvg-name="Gopnik TV (Verschlüsselt)" tvg-logo="" group-title="Gopnik TV",Gopnik TV (Verschluesselt)
-http://192.168.178.161:8090/stream.m3u8
+http://192.168.178.161:8060/stream.m3u8
 #EXTINF:-1 tvg-id="gopnik-tv.ru" tvg-name="Gopnik TV" tvg-logo="" group-title="Gopnik TV",Gopnik TV (GOPNIK USB License)
-http://192.168.178.161:8090/stream.m3u8?key=gLcQVXGIRGXe4fv3bFTAvKo86TNXpSsH4892gQ1eLVkgtcCXGY13pJdqkk9sWNIKAcq266rMGEhzKtD19jo8RIkSwTTWe5ooLfEvuztNrqBH0NDtuMgn7wT00SmZ0b3QBzXzbhZoKPsCa5d0VQC39Ktm4ZAybgFTq0EDRQcPkDdwjtYfVDEwqz2j42jt6otvw09IZwwaKNf1gw7dhvwjAnQ84OKzVwX0zyJ1LQuhjzA6IQRlxCjWPZtFaKdlXQVO
+http://192.168.178.161:8060/stream.m3u8?key=gLcQVXGIRGXe4fv3bFTAvKo86TNXpSsH4892gQ1eLVkgtcCXGY13pJdqkk9sWNIKAcq266rMGEhzKtD19jo8RIkSwTTWe5ooLfEvuztNrqBH0NDtuMgn7wT00SmZ0b3QBzXzbhZoKPsCa5d0VQC39Ktm4ZAybgFTq0EDRQcPkDdwjtYfVDEwqz2j42jt6otvw09IZwwaKNf1gw7dhvwjAnQ84OKzVwX0zyJ1LQuhjzA6IQRlxCjWPZtFaKdlXQVO
